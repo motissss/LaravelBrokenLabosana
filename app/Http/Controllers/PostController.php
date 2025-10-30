@@ -9,7 +9,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts.index');
+        $post = Post::all();
+        return view('posts.index', ['posts' => $post]);
     }
 
     public function create()
@@ -17,16 +18,15 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $req)
+    public function store(Request $request)
     {
-        Post::create([]);
-
+        Post::create();
         return redirect('/posts');
     }
 
     public function show()
     {
-        $post = Post::find();
+        $post = Post::find($id);
         return view('posts.show', ['post' => $post]);
     }
 
