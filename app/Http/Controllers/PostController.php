@@ -20,34 +20,41 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        Post::create();
+        $data= [
+            'title' => $request->title,
+            'content' => $request->content, 
+        ];
+        $post = Post::create($id);
         return redirect('/posts');
     }
 
-    public function show()
+    public function show(Request $id)
     {
         $post = Post::find($id);
-        return view('posts.show', ['post' => $post]);
+        return view('posts.show', ['posts' => $post]);
     }
 
-    public function edit($id)
+    public function edit(Request $id)
     {
         $post = Post::find($id);
         return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(Request $req, $id)
+    public function update(Request $request, $id)
     {
         $post = Post::find($id);
-
-        $post->update([]);
+        $data= [
+            'title' => $request->title,
+            'content' => $request->content, 
+        ];
+        $post->update([$data]);
 
         return redirect('/posts');
     }
 
     public function destroy($id)
     {
-        Post::find($id);
+        $post = Post::find($id);
         $post->delete();
         return redirect('/posts');
     }

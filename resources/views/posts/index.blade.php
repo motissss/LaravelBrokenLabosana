@@ -7,9 +7,9 @@
                 <h2>Title: {{ $post->title }}</h2>
                 <p>Content: {{ $post->content }}</p>
                 <div>
-                    <a href="/posts">Show</a>
+                    <a href="/posts/show">Show</a>
                     <a href="/posts/edit">Edit</a>
-                    <a href="/posts/destroy">Delete</a>
+                    <a href="/posts/delete">Delete</a>
                 </div>
             </li>
         @endforeach

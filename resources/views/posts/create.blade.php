@@ -1,7 +1,7 @@
 <x-app-layout>
     <h1>Create post</h1>
 
-    <form action="/posts/show" method="post">
+    <form action="/posts/store" method="post">
         <label for="title">Title: </label>
         <input type="text" id="title" name="title">
         <br>
